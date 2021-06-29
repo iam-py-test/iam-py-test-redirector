@@ -13,8 +13,8 @@ if(window.host !== null & window.host !== undefined) {
   var addifsafe = async function(){
     var req = await fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/main/Alternative%20list%20formats/antimalware_domains.txt")
     var urlhaus = await fetch("https://raw.githubusercontent.com/curbengh/urlhaus-filter/master/urlhaus-filter-online.txt")
-    var urlhauslist = await urlhaus.text().split("\n")
-    var list = await req.text().split('\n')
+    var urlhauslist = (await urlhaus.text()).split("\n")
+    var list = (await req.text()).split('\n')
     if(list.includes(host) === true || urlhauslist.includes(host) === true){
       var malwarn = document.getElementById('malwarewarning')
       malwarn.innerText += "Warning! \n"
