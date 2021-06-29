@@ -10,6 +10,7 @@ catch(err){
   var host = null
 }
 if(window.host !== null & window.host !== undefined) {
+  document.title = "Redirecting to '" + window.host + "'"
   var addifsafe = async function(){
     var req = await fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/main/Alternative%20list%20formats/antimalware_domains.txt")
     var urlhaus = await fetch("https://raw.githubusercontent.com/curbengh/urlhaus-filter/master/urlhaus-filter-online.txt")
