@@ -27,6 +27,18 @@ if(window.host !== null & window.host !== undefined) {
       malwarn.hidden = false
     }
     document.getElementById('link').href = url
+    try{
+      var httpsupgrade = await fetch("https://raw.githubusercontent.com/iam-py-test/https-upgrade-lists/main/crawled.txt")
+      var domainslist = (await httpsupgrade.text()).split("\n")
+      if(domainslist.includes(host) === true){
+        var urlp = new URL(document.getElementById('link').href)
+        urlp.protocol = 'https:'
+        document.getElementById('link').href = urlp.href
+      }
+    }
+    catch(err){
+    }
+    
     document.getElementById('link').textContent =  "Continue to '{}'?".replace("{}",host)
     document.getElementById('alerturl').textContent = host
   }
