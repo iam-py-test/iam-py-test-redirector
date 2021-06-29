@@ -1,6 +1,7 @@
 var url = new URL(location).searchParams.get('url')
 var token = new URL(location).searchParams.get('token')
 document.getElementById('url').textContent = url
+var host = null
 try{
 var host = (new URL(url).hostname||exitvar)
 }
@@ -8,7 +9,7 @@ catch(err){
   document.getElementById('url').textContent = "Invalid url"
   var host = null
 }
-else{
+if(window.host !== null & window.host !== undefined) {
   var addifsafe = async function(){
     var req = await fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/main/Alternative%20list%20formats/antimalware_domains.txt")
     var urlhaus = await fetch("https://raw.githubusercontent.com/curbengh/urlhaus-filter/master/urlhaus-filter-online.txt")
