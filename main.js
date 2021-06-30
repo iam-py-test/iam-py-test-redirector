@@ -45,8 +45,10 @@ if(window.host !== null & window.host !== undefined) {
     document.getElementById('link').href = url
     try{
       var httpsupgrade = await fetch("https://raw.githubusercontent.com/iam-py-test/https-upgrade-lists/main/crawled.txt")
+      var manualupgrade = await fetch('https://raw.githubusercontent.com/iam-py-test/https-upgrade-lists/main/sites.txt')
       var domainslist = (await httpsupgrade.text()).split("\n")
-      if(domainslist.includes(host) === true){
+      var manualdomains = (await manualupgrade.text()).split('\n')
+      if(domainslist.includes(host) === true || manualdomains.includes(host) === true){
         var urlp = new URL(document.getElementById('link').href)
         urlp.protocol = 'https:'
         document.getElementById('link').href = urlp.href
