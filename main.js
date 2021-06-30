@@ -35,6 +35,7 @@ if(window.host !== null & window.host !== undefined) {
     }
     catch(err){
     }
+        document.getElementById('malwarewarn').innerText = "The url you are being redirected to has been identified as malicious or unsafe. \nIt is highly recommended you do not continue"
         document.getElementById('link').hidden = false
       }
       malwarn.hidden = false
