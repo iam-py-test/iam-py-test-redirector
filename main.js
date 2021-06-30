@@ -42,7 +42,7 @@ if(window.host !== null & window.host !== undefined) {
     }
     else{
       
-    document.getElementById('link').href = ur
+    document.getElementById('link').href = url
     try{
       var httpsupgrade = await fetch("https://raw.githubusercontent.com/iam-py-test/https-upgrade-lists/main/crawled.txt")
       var domainslist = (await httpsupgrade.text()).split("\n")
