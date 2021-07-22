@@ -15,8 +15,10 @@ if(window.host !== null & window.host !== undefined) {
     var req = await fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/main/Alternative%20list%20formats/antimalware_domains.txt")
     var urlhaus = await fetch("https://raw.githubusercontent.com/curbengh/urlhaus-filter/master/urlhaus-filter-online.txt")
     var urlhauslist = (await urlhaus.text()).split("\n")
+    var phishinglistreq = await fetch("https://raw.githubusercontent.com/curbengh/phishing-filter/master/dist/phishing-filter.txt")
+    var phishinglist = (await phishinglistreq.text()).split("\n")
     var list = (await req.text()).split('\n')
-    if(list.includes(host) === true || urlhauslist.includes(host) === true){
+    if(list.includes(host) === true || urlhauslist.includes(host) === true || phishinglist.includes(host) === true){
       var malwarn = document.getElementById('malwarewarn')
       malwarn.innerText += "Warning! \n"
       malwarn.appendChild(document.createTextNode('The url you are being redirected to has been identified as malicious or unsafe. \nIt is highly recommended you do not continue'))
