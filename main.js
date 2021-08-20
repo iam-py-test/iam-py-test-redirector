@@ -17,8 +17,10 @@ if(window.host !== null & window.host !== undefined) {
     var urlhauslist = (await urlhaus.text()).split("\n")
     var phishinglistreq = await fetch("https://raw.githubusercontent.com/curbengh/phishing-filter/master/dist/phishing-filter.txt")
     var phishinglist = (await phishinglistreq.text()).split("\n")
+    var scamlistr = await fetch("https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt")
+    var scamlist = (await scamlistr.text()).split("\n")
     var list = (await req.text()).split('\n')
-    if(list.includes(host) === true || urlhauslist.includes(host) === true || phishinglist.includes(host) === true){
+    if(list.includes(host) === true || urlhauslist.includes(host) === true || phishinglist.includes(host) === true || scamlist.includes(host) === true){
       var malwarn = document.getElementById('malwarewarn')
       malwarn.innerText += "Warning! \n"
       malwarn.appendChild(document.createTextNode('The url you are being redirected to has been identified as malicious or unsafe. \nIt is highly recommended you do not continue'))
