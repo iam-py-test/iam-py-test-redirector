@@ -19,8 +19,12 @@ if(window.host !== null & window.host !== undefined) {
     var phishinglist = (await phishinglistreq.text()).split("\n")
     var scamlistr = await fetch("https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt")
     var scamlist = (await scamlistr.text()).split("\n")
+    var dandlistr = await fetch("https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareDomains.txt")
+    var dandlist = (await dandlistr.text()).split("\n")
+    var iplistr = await fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/main/Alternative%20list%20formats/antimalware_ips.txt")
+    var iplist = (await iplistr.text()).split("\n")
     var list = (await req.text()).split('\n')
-    if(list.includes(host) === true || urlhauslist.includes(host) === true || phishinglist.includes(host) === true || scamlist.includes(host) === true){
+    if(list.includes(host) === true || urlhauslist.includes(host) === true || phishinglist.includes(host) === true || scamlist.includes(host) === true || dandlist.includes(host) === true || iplist.includes(host) == true){
       var malwarn = document.getElementById('malwarewarn')
       malwarn.innerText += "Warning! \n"
       malwarn.appendChild(document.createTextNode('The url you are being redirected to has been identified as malicious or unsafe. \nIt is highly recommended you do not continue'))
