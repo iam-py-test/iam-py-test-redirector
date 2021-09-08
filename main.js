@@ -21,6 +21,7 @@ if(window.host !== null & window.host !== undefined) {
     var scamlist = (await scamlistr.text()).split("\n")
     var dandlistr = await fetch("https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareDomains.txt")
     var dandlist = (await dandlistr.text()).split("\n")
+    console.log(dandlist)
     var iplistr = await fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/main/Alternative%20list%20formats/antimalware_ips.txt")
     var iplist = (await iplistr.text()).split("\n")
     var list = (await req.text()).split('\n')
