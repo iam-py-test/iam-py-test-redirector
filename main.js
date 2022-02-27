@@ -31,9 +31,9 @@ if(window.host !== null & window.host !== undefined & window.host !== "") {
       var malwarn = document.getElementById('malwarewarn')
       malwarn.innerText += "Warning! \n"
       malwarn.appendChild(document.createTextNode('The url you are being redirected to has been identified as malicious or deceptive. \nIt is highly recommended you do not continue'))
-      window.setTimeout(function(){malwarn.innerText += "\nClick on this warning to continue"},955)
-      document.getElementById('link').hidden = true
-      malwarn.onclick = async function(){
+      window.setTimeout(function(){
+        malwarn.innerText += "\nClick on this warning to continue"
+        malwarn.onclick = async function(){
         document.getElementById('link').href = url
             try{
       var httpsupgrade = await fetch("https://raw.githubusercontent.com/iam-py-test/https-upgrade-lists/main/crawled.txt")
@@ -49,6 +49,8 @@ if(window.host !== null & window.host !== undefined & window.host !== "") {
         document.getElementById('malwarewarn').innerText = "The url you are being redirected to has been identified as malicious or deceptive. \nIt is highly recommended you do not continue"
         document.getElementById('link').hidden = false
       }
+      },2055)
+      document.getElementById('link').hidden = true
       malwarn.hidden = false
     }
     else{
