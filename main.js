@@ -49,7 +49,7 @@ if(window.host !== null & window.host !== undefined & window.host !== "") {
         document.getElementById('malwarewarn').innerText = "The url you are being redirected to has been identified as malicious or deceptive. \nIt is highly recommended you do not continue"
         document.getElementById('link').hidden = false
       }
-      },2055)
+      },5155)
       document.getElementById('link').hidden = true
       malwarn.hidden = false
     }
