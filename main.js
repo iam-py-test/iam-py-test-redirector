@@ -12,7 +12,7 @@ catch(err){
 }
 if(window.host !== null & window.host !== undefined & window.host !== "") {
   document.title = "Redirecting to '" + window.host + "'"
-  var addifsafe = async function(){
+  (async function(){
     var req = await fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/main/Alternative%20list%20formats/antimalware_domains.txt")
     var list = (await req.text()).split('\n')
     var urlhaus = await fetch("https://raw.githubusercontent.com/curbengh/urlhaus-filter/master/urlhaus-filter-online.txt")
@@ -26,48 +26,11 @@ if(window.host !== null & window.host !== undefined & window.host !== "") {
       var malwarn = document.getElementById('malwarewarn')
       malwarn.innerText += "Warning! \n"
       malwarn.appendChild(document.createTextNode('The url you are being redirected to has been identified as malicious or deceptive. \nIt is recommended you do not continue.'))
-      window.setTimeout(function(){
-        malwarn.innerText += "\nClick on this warning to continue."
-        malwarn.onclick = async function(){
-        document.getElementById('link').href = url
-            try{
-      var httpsupgrade = await fetch("https://raw.githubusercontent.com/iam-py-test/https-upgrade-lists/main/crawled.txt")
-      var domainslist = (await httpsupgrade.text()).split("\n")
-      if(domainslist.includes(host) === true){
-        var urlp = new URL(document.getElementById('link').href)
-        urlp.protocol = 'https:'
-        document.getElementById('link').href = urlp.href
-      }
-    }
-    catch(err){
-    }
-        document.getElementById('malwarewarn').innerText = "The url you are being redirected to has been identified as malicious or deceptive. \nIt is highly recommended you do not continue"
-        document.getElementById('link').hidden = false
-      }
-      },5155)
-      document.getElementById('link').hidden = true
       malwarn.hidden = false
     }
-    else{
       
     document.getElementById('link').href = url
-    try{
-      var httpsupgrade = await fetch("https://raw.githubusercontent.com/iam-py-test/https-upgrade-lists/main/crawled.txt")
-      var manualupgrade = await fetch('https://raw.githubusercontent.com/iam-py-test/https-upgrade-lists/main/sites.txt')
-      var domainslist = (await httpsupgrade.text()).split("\n")
-      var manualdomains = (await manualupgrade.text()).split('\n')
-      if(domainslist.includes(host) === true || manualdomains.includes(host) === true){
-        var urlp = new URL(document.getElementById('link').href)
-        urlp.protocol = 'https:'
-        document.getElementById('link').href = urlp.href
-      }
-    }
-    catch(err){
-    }
-    }
     
     document.getElementById('link').textContent =  "Continue to '{}'?".replace("{}",host)
     document.getElementById('alerturl').textContent = host
-  }
-  addifsafe()
-}
+})()
