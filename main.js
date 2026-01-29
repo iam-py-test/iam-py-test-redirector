@@ -11,7 +11,8 @@ catch(err){
   var host = null
 }
 if(window.host !== null & window.host !== undefined & window.host !== "") {
-  document.title = "Redirecting to '" + window.host + "'"
+  document.title = "Redirecting to '" + window.host + "'";
+  
   (async function(){
     var req = await fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/main/Alternative%20list%20formats/antimalware_domains.txt")
     var list = (await req.text()).split('\n')
@@ -34,4 +35,5 @@ if(window.host !== null & window.host !== undefined & window.host !== "") {
     document.getElementById('link').textContent =  "Continue to '{}'?".replace("{}",host)
     document.getElementById('alerturl').textContent = host
 })()
+  
 }
