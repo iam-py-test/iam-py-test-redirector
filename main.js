@@ -17,17 +17,12 @@ if(window.host !== null & window.host !== undefined & window.host !== "") {
     var list = (await req.text()).split('\n')
     var urlhaus = await fetch("https://raw.githubusercontent.com/curbengh/urlhaus-filter/master/urlhaus-filter-online.txt")
     var urlhauslist = (await urlhaus.text()).split("\n")
-    var phishinglistreq = await fetch("https://raw.githubusercontent.com/curbengh/phishing-filter/master/dist/phishing-filter.txt")
-    var phishinglist = (await phishinglistreq.text()).split("\n")
-    var PUPlistreq = await fetch("https://curbengh.github.io/pup-filter/pup-filter-domains.txt")
-    var PUPlist = (await PUPlistreq.text()).split("\n")
     var dandlistr = await fetch("https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareDomains.txt")
     var dandlist = (await dandlistr.text()).split("\n")
     var iplistr = await fetch("https://raw.githubusercontent.com/iam-py-test/my_filters_001/main/Alternative%20list%20formats/antimalware_ips.txt")
     var iplist = (await iplistr.text()).split("\n")
-    var blpmalr = await fetch("https://raw.githubusercontent.com/blocklistproject/Lists/master/alt-version/malware-nl.txt")
-    var blpmal = (await blpmalr.text()).split("\n")
-    if(list.includes(host) === true || urlhauslist.includes(host) === true || phishinglist.includes(host) === true || PUPlist.includes(host) === true || dandlist.includes(host + "\r") === true || iplist.includes(host) == true || blpmal.includes(host) === true){
+
+    if(list.includes(host) === true || urlhauslist.includes(host) === true || dandlist.includes(host + "\r") === true || iplist.includes(host) == true){
       var malwarn = document.getElementById('malwarewarn')
       malwarn.innerText += "Warning! \n"
       malwarn.appendChild(document.createTextNode('The url you are being redirected to has been identified as malicious or deceptive. \nIt is highly recommended you do not continue'))
