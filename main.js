@@ -25,9 +25,9 @@ if(window.host !== null & window.host !== undefined & window.host !== "") {
     if(list.includes(host) === true || urlhauslist.includes(host) === true || dandlist.includes(host + "\r") === true || iplist.includes(host) == true){
       var malwarn = document.getElementById('malwarewarn')
       malwarn.innerText += "Warning! \n"
-      malwarn.appendChild(document.createTextNode('The url you are being redirected to has been identified as malicious or deceptive. \nIt is highly recommended you do not continue'))
+      malwarn.appendChild(document.createTextNode('The url you are being redirected to has been identified as malicious or deceptive. \nIt is recommended you do not continue.'))
       window.setTimeout(function(){
-        malwarn.innerText += "\nClick on this warning to continue"
+        malwarn.innerText += "\nClick on this warning to continue."
         malwarn.onclick = async function(){
         document.getElementById('link').href = url
             try{
