@@ -34,3 +34,4 @@ if(window.host !== null & window.host !== undefined & window.host !== "") {
     document.getElementById('link').textContent =  "Continue to '{}'?".replace("{}",host)
     document.getElementById('alerturl').textContent = host
 })()
+}
